@@ -1,0 +1,51 @@
++ Trabajo práctico integrador - Computación Aplicada.
+  + Configuración del Entorno
+    - Contraseña Root: palermo (tras blanqueo inicial)
+    - Disco Adicional: 10GB
++ Servicios
+  + SSH
+    - Configuración: Acceso root con clave privada/pública
+  + Apache (Web)
+    - PHP: 7.3+
+    - Archivos: /www_dir/index.php, /www_dir/logo.png
+    - Config: 000-default.conf, apache2
+  + MariaDB
+    - Script: db.sql
++ Configuración de Red
+  + Interfaz de Red
+    - IP: 192.168.1.120
+    - Netmask: 255.255.255.0
+    - Gateway: 192.168.1.1
+  + Conexión
+    - Tipo: Bridge
+    - Pruebas: Conectividad y Acceso Web
++ Almacenamiento
+  + /www_dir (3GB)
+    - Montaje: Automático
+    - Contenido: index.php, logo.png
+  + /backup_dir (6GB)
+    - Montaje: Automático
+    - Uso: Almacenamiento de backups
+  + /root/particion
+    - Nota: Creado en /root (no /proc), redirige /proc/partitions via script crontab
++ Backup
+  + Script: backup_full.sh (/opt/scripts)
+    - Argumentos: origen, destino
+    - Opción: -help
+    - Formato: log_bkp_YYYYMMDD.tar.gz
+  + Programación (crontab)
+    + Diario 00:00
+      - Backup: /var/log
+    + Lunes, Miércoles, Viernes 23:00
+      - Backup: /www_dir
++ Entregables (GitHub)
+  + Directorios Subidos (.tar.gz)
+    - /root: 
+    - /etc: 
+    - /opt: 
+    - /www_dir: 
+    - /backup_dir: 
+    - /var: Dividido en partes
+  + No Subido
+    - /proc: 
+  + README.md
